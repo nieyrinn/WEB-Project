@@ -51,9 +51,6 @@ SupportHer is a women's support platform designed to provide a secure and access
    cd /WEB-Project/supporther
 ```
 ```
-   python3 -m venv venv
-```
-```
    source venv/bin/activate
 ```
 ```
