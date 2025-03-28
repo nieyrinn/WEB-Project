@@ -1,9 +1,8 @@
 # Project: SupportHer  
 ![image](https://github.com/user-attachments/assets/97048f4f-5f69-4372-a5ad-d7b325436463)
 
-
 ## Description  
-SupportHer is a women's support platform designed to provide a secure and accessible space for users to seek guidance, access resources, and participate in support sessions. The platform includes authentication, user management, and CRUD operations for managing user-related data.  
+ SupportHer is a women's support platform designed to provide a secure and accessible space for users to seek guidance, access resources, and participate in support sessions. The platform includes authentication, user management, and CRUD operations for managing user-related data.  
 
 ## Features of SupportHer  
 - **User Authentication**: Secure login and registration using JWT.  
@@ -12,8 +11,12 @@ SupportHer is a women's support platform designed to provide a secure and access
 - **Dashboard**: A personalized space where users can view their activity, saved resources, and ongoing support sessions.  
 - **User Management**: Create, update, and manage user profiles.  
 
-## Minimum Requirements  
+## Members:
+ 1) Amanzholova Nazyken 
+ 2) Seidkarim Assem
+ 3) Bulgankhan Ulykbek
 
+## Minimum Requirements  
 ### **Front End** (Angular)  
 1. Implement all necessary interfaces/classes for APIs from the back-end.  
 2. Create all required services to fetch data from the API.  
