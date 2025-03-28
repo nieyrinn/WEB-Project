@@ -1,0 +1,97 @@
+<div class="dashboard">
+    <div class="hero-section">
+      <div class="container">
+        <h1>Welcome to SupportHer</h1>
+        <p *ngIf="currentUser">Welcome back, {{ currentUser.first_name || currentUser.username }}!</p>
+        <p class="subtitle">Find resources, connect with mentors, and access support services</p>
+      </div>
+    </div>
+  
+    <div class="container main-content">
+      <div *ngIf="isLoading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading dashboard...</p>
+      </div>
+  
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+  
+      <div *ngIf="!isLoading && !error" class="dashboard-grid">
+        <!-- Support Categories -->
+        <section class="dashboard-section categories-section">
+          <h2>Support Categories</h2>
+          <div class="categories-grid">
+            <div 
+              *ngFor="let category of categories" 
+              class="category-card"
+              (click)="selectCategory(category)"
+              [ngClass]="{'active': selectedCategory?.id === category.id}"
+            >
+              <div class="icon" [ngClass]="category.icon || 'default-icon'"></div>
+              <h3>{{ category.name }}</h3>
+              <p>{{ category.description }}</p>
+            </div>
+          </div>
+        </section>
+  
+        <!-- Featured Resources -->
+        <section class="dashboard-section resources-section">
+          <h2>Featured Resources</h2>
+          <div class="resources-list">
+            <div *ngIf="featuredResources.length === 0" class="empty-state">
+              <p>No resources available yet.</p>
+              <a routerLink="/resources" class="btn btn-primary">Browse All Resources</a>
+            </div>
+  
+            <div *ngFor="let resource of featuredResources" class="resource-card">
+              <h3>{{ resource.title }}</h3>
+              <p class="category">{{ resource.category_name }}</p>
+              <p class="description">{{ resource.description }}</p>
+              <div class="resource-actions">
+                <a [href]="resource.url" *ngIf="resource.url" target="_blank" class="btn btn-outline-secondary">
+                  Visit Resource
+                </a>
+                <a [href]="resource.file" *ngIf="resource.file" target="_blank" class="btn btn-outline-secondary">
+                  Download File
+                </a>
+              </div>
+            </div>
+  
+            <div class="view-all">
+              <a routerLink="/resources" class="btn btn-link">View All Resources →</a>
+            </div>
+          </div>
+        </section>
+  
+        <!-- Upcoming Sessions -->
+        <section class="dashboard-section sessions-section">
+          <h2>Your Upcoming Sessions</h2>
+          <div class="sessions-list">
+            <div *ngIf="upcomingSessions.length === 0" class="empty-state">
+              <p>No upcoming sessions scheduled.</p>
+              <a routerLink="/sessions/new" class="btn btn-primary">Schedule a Session</a>
+            </div>
+  
+            <div *ngFor="let session of upcomingSessions" class="session-card">
+              <h3>{{ session.title }}</h3>
+              <p class="time">
+                <i class="far fa-calendar"></i> {{ formatDate(session.scheduled_time) }}
+              </p>
+              <p class="category">{{ session.category_name }}</p>
+              <p class="mentor">With: {{ session.mentor_name }}</p>
+              <div class="session-actions">
+                <a [routerLink]="['/sessions', session.id]" class="btn btn-outline-secondary">
+                  View Details
+                </a>
+              </div>
+            </div>
+  
+            <div class="view-all">
+              <a routerLink="/sessions" class="btn btn-link">View All Sessions →</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>

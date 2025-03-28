@@ -1,0 +1,53 @@
+<header class="header">
+    <div class="container">
+      <div class="logo">
+        <a routerLink="/">
+          <span class="logo-text">SupportHer</span>
+        </a>
+      </div>
+  
+      <div class="mobile-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  
+      <nav class="nav" [ngClass]="{'nav-open': isMenuOpen}">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/resources" routerLinkActive="active">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/sessions" routerLinkActive="active">Support Sessions</a>
+          </li>
+          
+          <ng-container *ngIf="(currentUser$ | async) as user; else loginItem">
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle">
+                {{ user.first_name || user.username }}
+                <i class="fas fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/profile">My Profile</a></li>
+                <li><a routerLink="/my-sessions">My Sessions</a></li>
+                <li><a (click)="logout()" class="logout-btn">Logout</a></li>
+              </ul>
+            </li>
+          </ng-container>
+          
+          <ng-template #loginItem>
+            <li class="nav-item">
+              <a routerLink="/login" class="btn btn-outline">Login</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/register" class="btn btn-primary">Sign Up</a>
+            </li>
+          </ng-template>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  

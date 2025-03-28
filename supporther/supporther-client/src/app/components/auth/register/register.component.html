@@ -1,0 +1,137 @@
+<div class="register-container">
+    <div class="register-card">
+      <h2 class="title">SupportHer</h2>
+      <h3 class="subtitle">Create an Account</h3>
+      
+      <div *ngIf="success" class="success-message">
+        {{ success }}
+      </div>
+  
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input 
+              type="text" 
+              id="firstName" 
+              formControlName="firstName" 
+              class="form-control" 
+              placeholder="Enter your first name"
+              [ngClass]="{'is-invalid': firstName?.invalid && firstName?.touched}"
+            >
+            <div *ngIf="firstName?.invalid && firstName?.touched" class="error-message">
+              First name is required
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input 
+              type="text" 
+              id="lastName" 
+              formControlName="lastName" 
+              class="form-control" 
+              placeholder="Enter your last name"
+              [ngClass]="{'is-invalid': lastName?.invalid && lastName?.touched}"
+            >
+            <div *ngIf="lastName?.invalid && lastName?.touched" class="error-message">
+              Last name is required
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input 
+            type="text" 
+            id="username" 
+            formControlName="username" 
+            class="form-control" 
+            placeholder="Choose a username"
+            [ngClass]="{'is-invalid': username?.invalid && username?.touched}"
+          >
+          <div *ngIf="username?.invalid && username?.touched" class="error-message">
+            <span *ngIf="username?.errors?.['required']">Username is required</span>
+            <span *ngIf="username?.errors?.['minlength']">Username must be at least 4 characters</span>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            class="form-control" 
+            placeholder="Enter your email"
+            [ngClass]="{'is-invalid': email?.invalid && email?.touched}"
+          >
+          <div *ngIf="email?.invalid && email?.touched" class="error-message">
+            <span *ngIf="email?.errors?.['required']">Email is required</span>
+            <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            formControlName="password" 
+            class="form-control" 
+            placeholder="Create a password"
+            [ngClass]="{'is-invalid': password?.invalid && password?.touched}"
+          >
+          <div *ngIf="password?.invalid && password?.touched" class="error-message">
+            <span *ngIf="password?.errors?.['required']">Password is required</span>
+            <span *ngIf="password?.errors?.['minlength']">Password must be at least 8 characters</span>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              formControlName="confirmPassword" 
+              class="form-control" 
+              placeholder="Confirm your password"
+              [ngClass]="{'is-invalid': confirmPassword?.invalid && confirmPassword?.touched}"
+            >
+            <div *ngIf="confirmPassword?.invalid && confirmPassword?.touched" class="error-message">
+              <span *ngIf="confirmPassword?.errors?.['required']">Please confirm your password</span>
+              <span *ngIf="confirmPassword?.errors?.['passwordMismatch']">Passwords do not match</span>
+            </div>
+          </div>
+    
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                formControlName="agreeToTerms"
+              >
+              I agree to the Terms of Service and Privacy Policy
+            </label>
+            <div *ngIf="agreeToTerms?.invalid && agreeToTerms?.touched" class="error-message">
+              You must agree to the terms
+            </div>
+          </div>
+    
+          <div *ngIf="error" class="alert alert-danger">
+            {{ error }}
+          </div>
+    
+          <button 
+            type="submit" 
+            class="btn btn-primary btn-block" 
+            [disabled]="registerForm.invalid || isLoading"
+          >
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+          </button>
+    
+          <div class="login-link">
+            Already have an account? <a routerLink="/login">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>

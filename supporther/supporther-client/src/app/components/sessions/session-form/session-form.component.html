@@ -1,0 +1,160 @@
+<div class="session-form-container">
+    <div class="hero-section">
+      <div class="container">
+        <h1>{{ isEditMode ? 'Edit Support Session' : 'Schedule Support Session' }}</h1>
+        <p class="subtitle">Connect with mentors and get the support you need</p>
+      </div>
+    </div>
+  
+    <div class="container main-content">
+      <div class="session-form-card">
+        <div *ngIf="isLoading" class="loading">
+          <div class="spinner"></div>
+          <p>Loading...</p>
+        </div>
+  
+        <div *ngIf="error" class="error-message">
+          {{ error }}
+        </div>
+  
+        <div *ngIf="success" class="success-message">
+          {{ success }}
+        </div>
+  
+        <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+          <div class="form-group">
+            <label for="title">Session Title</label>
+            <input 
+              type="text" 
+              id="title" 
+              formControlName="title" 
+              [(ngModel)]="sessionForm.value.title"
+              class="form-control" 
+              placeholder="Enter a title for your session"
+              [ngClass]="{'is-invalid': title?.invalid && title?.touched}"
+            >
+            <div *ngIf="title?.invalid && title?.touched" class="invalid-feedback">
+              Session title is required
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea 
+              id="description" 
+              formControlName="description" 
+              [(ngModel)]="sessionForm.value.description"
+              class="form-control" 
+              rows="4"
+              placeholder="Describe what you'd like to discuss in this session"
+              [ngClass]="{'is-invalid': description?.invalid && description?.touched}"
+            ></textarea>
+            <div *ngIf="description?.invalid && description?.touched" class="invalid-feedback">
+              Description is required
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="category">Support Category</label>
+              <select 
+                id="category" 
+                formControlName="category_id" 
+                [(ngModel)]="sessionForm.value.category_id"
+                class="form-control"
+                [ngClass]="{'is-invalid': category_id?.invalid && category_id?.touched}"
+              >
+                <option [ngValue]="null" disabled>Select a category</option>
+                <option *ngFor="let category of categories" [ngValue]="category.id">
+                  {{ category.name }}
+                </option>
+              </select>
+              <div *ngIf="category_id?.invalid && category_id?.touched" class="invalid-feedback">
+                Please select a category
+              </div>
+            </div>
+  
+            <div class="form-group col-md-6">
+              <label for="mentor">Select Mentor</label>
+              <select 
+                id="mentor" 
+                formControlName="mentor_id" 
+                [(ngModel)]="sessionForm.value.mentor_id"
+                class="form-control"
+                [ngClass]="{'is-invalid': mentor_id?.invalid && mentor_id?.touched}"
+              >
+                <option [ngValue]="null" disabled>Select a mentor</option>
+                <option *ngFor="let mentor of mentors" [ngValue]="mentor.id">
+                  {{ mentor.first_name }} {{ mentor.last_name }}
+                </option>
+              </select>
+              <div *ngIf="mentor_id?.invalid && mentor_id?.touched" class="invalid-feedback">
+                Please select a mentor
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="scheduled_time">Date & Time</label>
+              <input 
+                type="datetime-local" 
+                id="scheduled_time" 
+                formControlName="scheduled_time" 
+                [(ngModel)]="sessionForm.value.scheduled_time"
+                class="form-control"
+                [ngClass]="{'is-invalid': scheduled_time?.invalid && scheduled_time?.touched}"
+              >
+              <div *ngIf="scheduled_time?.invalid && scheduled_time?.touched" class="invalid-feedback">
+                Please select a date and time
+              </div>
+            </div>
+  
+            <div class="form-group col-md-4">
+              <label for="duration">Duration (minutes)</label>
+              <input 
+                type="number" 
+                id="duration" 
+                formControlName="duration_minutes" 
+                [(ngModel)]="sessionForm.value.duration_minutes"
+                class="form-control"
+                min="15"
+                step="15"
+                [ngClass]="{'is-invalid': duration_minutes?.invalid && duration_minutes?.touched}"
+              >
+              <div *ngIf="duration_minutes?.invalid && duration_minutes?.touched" class="invalid-feedback">
+                Duration must be at least 15 minutes
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="notes">Additional Notes (Optional)</label>
+            <textarea 
+              id="notes" 
+              formControlName="notes" 
+              [(ngModel)]="sessionForm.value.notes"
+              class="form-control" 
+              rows="3"
+              placeholder="Any additional information for the mentor"
+            ></textarea>
+          </div>
+  
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline-secondary" routerLink="/sessions">
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              class="btn btn-primary"
+              [disabled]="sessionForm.invalid || isSubmitting"
+            >
+              <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
+              {{ isEditMode ? 'Update Session' : 'Schedule Session' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
