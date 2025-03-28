@@ -1,21 +1,19 @@
+#sooomeeeee not neaddable sheets
 .DS_Store
 .idea/
 *.xml
 node_modules/
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Compiled output
 /dist
 /tmp
 /out-tsc
 /bazel-out
 
-# Node
 /node_modules
 npm-debug.log
 yarn-error.log
 
-# IDEs and editors
 .idea/
 .project
 .classpath
@@ -31,7 +29,6 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
 /.angular/cache
 .sass-cache/
 /connect.lock
@@ -40,7 +37,6 @@ yarn-error.log
 testem.log
 /typings
 
-# System files
 .DS_Store
 Thumbs.db
 
