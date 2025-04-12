@@ -1,0 +1,8 @@
+<h2>Companies</h2>
+<div class="susu">
+  <div *ngFor="let company of companies" class="card">
+    <button [routerLink]="['/companies', company.id, 'vacancies']">
+      {{ company.name }}
+    </button>
+   </div>
+</div>

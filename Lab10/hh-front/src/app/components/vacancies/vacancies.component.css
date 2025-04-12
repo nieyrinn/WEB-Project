@@ -1,0 +1,54 @@
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: rgb(137, 100, 189);
+    padding: 10px;
+    margin: 30px;
+}
+.susu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 10px;
+}
+
+.card {
+    text-align: center;
+    gap: 10px;
+    border: 1px solid #caa1ff;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px;
+    width:250px;
+    background-color: #d0afff4c;
+    box-shadow: 0 4px 6px rgba(76, 13, 110, 0.693);
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #583185;
+    font-weight: 1000;
+    margin: 30px;
+}
+button {
+    background-color: #d8b9ff59;
+    color: rgb(114, 24, 91);
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+button:hover {
+    background-color: #d0afff51;
+}   
+.susu :hover {
+    transform: scale(1.05);
+}

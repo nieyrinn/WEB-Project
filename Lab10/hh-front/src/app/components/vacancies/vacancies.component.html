@@ -1,0 +1,11 @@
+<h2>Vacancies</h2>
+<div class="susu">
+  <ng-container *ngFor="let vacancy of vacancies">
+    <div *ngIf="vacancy.company" class="card">
+      <h3>{{ vacancy.name }}</h3>
+      <p>{{ vacancy.description }}</p>
+      <p>{{ vacancy.salary }} $</p>
+      <button>Apply</button>
+    </div>
+  </ng-container>
+</div>

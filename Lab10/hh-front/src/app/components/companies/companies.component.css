@@ -1,0 +1,38 @@
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: rgb(137, 100, 189);
+    padding: 10px;
+    margin: 30px;
+}
+.susu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+.card button {
+    text-align: center;
+}
+.card :hover {
+    transform: scale(1.05);
+    background-color: #d0afff51;
+}
+button { 
+    text-align: center;
+    text-decoration: none;
+    color: #583185;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 20px;
+    background-color: #dac3ff9c;
+    box-shadow: 0 2px 6px rgba(76, 13, 110, 0.693);
+    width: 300px;
+    border-radius: 30px;
+    border: none;
+}
