@@ -57,13 +57,13 @@ SupportHer is a women's support platform designed to provide a secure and access
    source venv/bin/activate
 ```
 ```
-   pip install django djangorestframework djangorestframework-simplejwt django-cors-headers pillow
+   pip3 install django djangorestframework djangorestframework-simplejwt django-cors-headers pillow
 ```
 ```
-   python manage.py migrate
+   python3 manage.py migrate
 ```
 ```
-   python manage.py runserver
+   python3 manage.py runserver
 ```
 
 ### Frontend (Angular):
