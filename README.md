@@ -7,10 +7,9 @@ SupportHer is a women's support platform designed to provide a secure and access
 
 ## Features of SupportHer  
 - **User Authentication**: Secure login and registration using JWT.  
-- **Support Sessions**: Users can join and manage sessions for emotional and mental well-being.  
 - **Resources Section**: A collection of helpful articles, tips, and guides.  
-- **Dashboard**: A personalized space where users can view their activity, saved resources, and ongoing support sessions.  
-- **User Management**: Create, update, and manage user profiles.  
+- **Dashboard**: A personalized space where users can view many categories of supporting resources.  
+- **User Profile**: You can manage them on admin panel.  
 
 ## Minimum Requirements  
 
