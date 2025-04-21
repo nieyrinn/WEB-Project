@@ -3,7 +3,7 @@
 
 
 ## Description  
-SupportHer is a women's support platform designed to provide a secure and accessible space for users to seek guidance, access resources, and participate in support sessions. The platform includes authentication, user management, and CRUD operations for managing user-related data.  
+SupportHer is a women's support platform designed to provide a secure and accessible space for users to seek guidance, access resources. The platform includes authentication, user management, and CRUD operations for managing user-related data.  
 
 ## Features of SupportHer  
 - **User Authentication**: Secure login and registration using JWT.  
@@ -43,38 +43,4 @@ SupportHer is a women's support platform designed to provide a secure and access
    - Logout endpoint  
 7. Implement **CRUD operations for at least one model**, ensuring authenticated users can create objects (e.g., tasks or support requests).  
 8. Provide **Postman requests** for testing all implemented API methods.  
-
-## Commands for launching: 
-### Backend (Django):
-```
-   cd /WEB-Project/supporther
-```
-```
-   python3 -m venv venv
-```
-```
-   source venv/bin/activate
-```
-```
-   pip3 install django djangorestframework djangorestframework-simplejwt django-cors-headers pillow
-```
-```
-   python3 manage.py migrate
-```
-```
-   python3 manage.py runserver
-```
-
-### Frontend (Angular):
-```
-   cd /WEB-Project/supporther/supporther-client
-```
-```
-   npm install
-```
-```
-   ng serve
-```
-
-
 
